@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Background from "../public/images/background.png";
+import { Play } from "lucide-react";
 import { useState, useEffect } from "react";
 import Olympics from "@/public/olympics.png";
 import Owner from "@/public/porkstridebust.png";
@@ -45,7 +47,7 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
           {String(value).padStart(2, "0")}
         </span>
       </div>
-      <span className="text-[7px] uppercase tracking-widest font-bold text-[#333] mt-1">{label}</span>
+      <span className="text-[7px] uppercase tracking-widest font-bold text-[#666] mt-1">{label}</span>
     </div>
   );
 }
@@ -65,15 +67,19 @@ export default function Home() {
         style={{ background: "rgba(9,9,14,0.92)", backdropFilter: "blur(20px)" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-8 h-14 flex justify-between items-center">
           <div className="flex items-center gap-2.5 shrink-0">
-            <div className="w-6 h-6 relative">
+            <div className="w-16 h-16 relative"
+              style={{
+                filter: `drop-shadow(0 0 8px ${GOLD}) drop-shadow(0 0 20px ${GOLD}80) drop-shadow(0 0 40px ${GOLD}40)`,
+              }}>
               <Image src={Olympics} alt="MCYT Olympics" fill className="object-contain" />
             </div>
-            <span className="font-black tracking-[0.18em] uppercase text-xs" style={{ color: GOLD }}>
+
+            <span className="font-black tracking-[0.18em] uppercase text-xl items-center" style={{ color: GOLD }}>
               MCYT Olympics
             </span>
           </div>
 
-          <div className="hidden md:flex gap-7 text-[9px] uppercase font-bold tracking-widest text-[#333]">
+          <div className="hidden md:flex gap-7 text-xs uppercase font-bold tracking-widest text-gray-200">
             {NAV_LINKS.map((item) => (
               <a key={item} href="#" className="hover:text-[#F0EDE8] transition-colors duration-150 relative group">
                 {item}
@@ -85,7 +91,7 @@ export default function Home() {
 
           <div className="flex items-center gap-3">
             <a href="#"
-              className="text-[9px] font-black uppercase tracking-widest px-3.5 py-1.5 transition-all duration-150"
+              className="text-xs font-black uppercase tracking-widest px-3.5 py-1.5 transition-all duration-150"
               style={{ border: `1px solid ${GOLD}50`, color: GOLD }}
               onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = GOLD; el.style.color = "#09090E"; }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = "transparent"; el.style.color = GOLD; }}
@@ -104,7 +110,7 @@ export default function Home() {
           <div className="md:hidden border-t border-white/[0.05]" style={{ background: "#09090E" }}>
             {NAV_LINKS.map((item) => (
               <a key={item} href="#" onClick={() => setMobileOpen(false)}
-                className="block px-6 py-3.5 text-[9px] font-black uppercase tracking-widest text-[#333] hover:text-[#F0EDE8] border-b border-white/[0.03] transition-colors">
+                className="block px-6 py-3.5 text-[9px] font-black uppercase tracking-widest text-[#666] hover:text-[#F0EDE8] border-b border-white/[0.03] transition-colors">
                 {item}
               </a>
             ))}
@@ -113,7 +119,7 @@ export default function Home() {
       </nav>
 
       <section className="relative z-10 min-h-[90vh] flex flex-col justify-end overflow-hidden">
-        <Image src="https://media.craiyon.com/2025-09-25/FrBqQgTYQXqpDUsBL08ITw.webp" alt="" fill priority quality={90} className="object-cover object-center" />
+        <Image src={Background} alt="" fill priority quality={90} className="object-cover object-center" />
 
         <div className="absolute inset-0" style={{ background: "rgba(9,9,14,0.5)" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #09090E 0%, rgba(9,9,14,0.6) 45%, transparent 100%)" }} />
@@ -147,19 +153,19 @@ export default function Home() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2.5">
-                <button className="px-8 py-3 text-[9px] font-black uppercase tracking-widest transition-all active:scale-95"
+                <button className="px-8 py-3 text-xs flex items-center font-black uppercase tracking-widest transition-all active:scale-95"
                   style={{ backgroundColor: GOLD, color: "#09090E" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLElement).style.backgroundColor = GOLD_HOVER)}
                   onMouseLeave={e => ((e.currentTarget as HTMLElement).style.backgroundColor = GOLD)}>
-                  Watch Live
+                  <Play className="mr-2" /> Watch Live
                 </button>
-                <button className="border border-white/15 text-[#777] bg-black/30 backdrop-blur-sm px-8 py-3 text-[9px] font-black uppercase tracking-widest hover:text-[#F0EDE8] hover:border-white/30 transition-all">
+                <button className="border border-white/15 text-[#777] bg-black/30 backdrop-blur-sm px-8 py-3 text-xs font-black uppercase tracking-widest hover:text-[#F0EDE8] hover:border-white/30 transition-all">
                   Donate
                 </button>
               </div>
 
               <div className="mt-8 pt-6 border-t border-white/[0.06]">
-                <p className="text-[8px] uppercase font-bold tracking-[0.3em] text-[#252525] mb-3">Starts in</p>
+                <p className="text-[8px] uppercase font-bold tracking-[0.3em] text-[#888] mb-3">Starts in</p>
                 <div className="flex gap-2.5 items-start">
                   <CountdownUnit value={countdown.days} label="Days" />
                   <span className="text-[#1f1f1f] font-black text-xl mt-1">:</span>
@@ -186,7 +192,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-baseline gap-2 mb-1">
                   <span className="text-3xl font-black tabular-nums">342</span>
-                  <span className="text-xs text-[#252525] font-bold">/500 players</span>
+                  <span className="text-xs text-[#888] font-bold">/500 players</span>
                 </div>
                 <div className="w-full h-0.5 bg-white/[0.05] overflow-hidden mb-3">
                   <div className="h-full w-[68%]"
@@ -259,7 +265,7 @@ export default function Home() {
                 >
                   <span className="group-hover:text-[#C9A84C] transition-colors">{name}</span>
                 </h3>
-                <p className="text-[11px] text-[#2e2e2e] leading-relaxed">{desc}</p>
+                <p className="text-[11px] text-[#666] leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -298,16 +304,16 @@ export default function Home() {
                 the community
               </span>
             </h2>
-            <p className="text-[#2a2a2a] text-sm leading-relaxed mb-5">
+            <p className="text-[#888] text-sm leading-relaxed mb-5">
               Founded by Porkstride, the MCYT Olympics is an annual charity tournament. Every edition brings together the biggest Minecraft creators for custom-coded games — and every donation goes directly to the cause chosen by the community.
             </p>
 
             <div className="flex gap-6">
               {[
-                { v: "€42K+", l: "Raised" },
-                { v: "120+", l: "Creators" },
-                { v: "2M+", l: "Viewers" },
-                { v: "3", l: "Editions" },
+                { v: "€***+", l: "Raised" },
+                { v: "***+", l: "Creators" },
+                { v: "**+", l: "Viewers" },
+                { v: "*", l: "Editions" },
               ].map(({ v, l }) => (
                 <div key={l}>
                   <div className="text-lg font-black" style={{ color: GOLD }}>{v}</div>
@@ -344,9 +350,9 @@ export default function Home() {
               style={{ backgroundColor: GOLD, color: "#09090E" }}
               onMouseEnter={e => ((e.currentTarget as HTMLElement).style.backgroundColor = GOLD_HOVER)}
               onMouseLeave={e => ((e.currentTarget as HTMLElement).style.backgroundColor = GOLD)}>
-              Watch Live
+              <Play />Watch Live
             </button>
-            <button className="border border-white/[0.07] text-[#2a2a2a] px-10 py-3 text-[9px] font-black uppercase tracking-widest hover:text-[#F0EDE8] hover:border-white/[0.12] transition-all">
+            <button className="border border-white/[0.07] text-[#888] px-10 py-3 text-[9px] font-black uppercase tracking-widest hover:text-[#F0EDE8] hover:border-white/[0.12] transition-all">
               Donate
             </button>
           </div>
@@ -354,15 +360,7 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-white/[0.04]" style={{ background: "#050509" }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-8 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 relative">
-              <Image src={Olympics} alt="MCYT Olympics" fill className="object-contain" />
-            </div>
-            <span className="font-black uppercase tracking-widest text-[9px]" style={{ color: GOLD }}>
-              MCYT Olympics
-            </span>
-          </div>
+        <div className="flex items-center gap-2">
           <p className="text-[8px] text-[#181818] font-bold uppercase tracking-widest">
             © 2026 MCYT Olympics · All Rights Reserved
           </p>
