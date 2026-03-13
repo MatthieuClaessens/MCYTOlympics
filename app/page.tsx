@@ -43,11 +43,11 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
       <div className="w-14 text-center border border-white/[0.07] bg-black/40 backdrop-blur-sm py-1.5">
-        <span className="text-2xl font-black tabular-nums text-[#F0EDE8] leading-none">
+        <span className="text-3xl font-black tabular-nums text-[#F0EDE8] leading-none">
           {String(value).padStart(2, "0")}
         </span>
       </div>
-      <span className="text-[7px] uppercase tracking-widest font-bold text-[#666] mt-1">{label}</span>
+      <span className="text-[9px] uppercase tracking-widest font-bold text-[#666] mt-1">{label}</span>
     </div>
   );
 }
@@ -79,7 +79,7 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="hidden md:flex gap-7 text-xs uppercase font-bold tracking-widest text-gray-200">
+          <div className="hidden md:flex gap-7 text-sm uppercase font-bold tracking-widest text-gray-200">
             {NAV_LINKS.map((item) => (
               <a key={item} href="#" className="hover:text-[#F0EDE8] transition-colors duration-150 relative group">
                 {item}
@@ -91,7 +91,7 @@ export default function Home() {
 
           <div className="flex items-center gap-3">
             <a href="#"
-              className="text-xs font-black uppercase tracking-widest px-3.5 py-1.5 transition-all duration-150"
+              className="text-sm font-black uppercase tracking-widest px-3.5 py-1.5 transition-all duration-150"
               style={{ border: `1px solid ${GOLD}50`, color: GOLD }}
               onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = GOLD; el.style.color = "#09090E"; }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = "transparent"; el.style.color = GOLD; }}
@@ -110,7 +110,7 @@ export default function Home() {
           <div className="md:hidden border-t border-white/[0.05]" style={{ background: "#09090E" }}>
             {NAV_LINKS.map((item) => (
               <a key={item} href="#" onClick={() => setMobileOpen(false)}
-                className="block px-6 py-3.5 text-[9px] font-black uppercase tracking-widest text-[#666] hover:text-[#F0EDE8] border-b border-white/[0.03] transition-colors">
+                className="block px-6 py-3.5 text-xs font-black uppercase tracking-widest text-[#666] hover:text-[#F0EDE8] border-b border-white/[0.03] transition-colors">
                 {item}
               </a>
             ))}
@@ -136,7 +136,7 @@ export default function Home() {
           <div className="grid md:grid-cols-[1fr_280px] gap-8 md:gap-12 items-end">
 
             <div>
-              <div className="inline-flex items-center gap-2 text-[8px] font-black uppercase tracking-widest mb-5 border bg-black/50 backdrop-blur-sm px-3 py-1"
+              <div className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest mb-5 border bg-black/50 backdrop-blur-sm px-3 py-1"
                 style={{ color: GOLD, borderColor: `${GOLD}30` }}>
                 <span className="w-1 h-1 rounded-full animate-pulse" style={{ backgroundColor: GOLD }} />
                 Porkstride Production · Edition IV · June 2026
@@ -147,19 +147,19 @@ export default function Home() {
                 <span className="text-transparent" style={{ WebkitTextStroke: "2px #F0EDE8" }}>OLYMPICS</span>
               </h1>
 
-              <p className="mt-5 text-[#777] text-sm pl-4 max-w-xs leading-relaxed"
+              <p className="mt-5 text-[#777] text-base pl-4 max-w-xs leading-relaxed"
                 style={{ borderLeft: `2px solid ${GOLD}` }}>
                 Gaming for Charity. Every year. For the community.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2.5">
-                <button className="px-8 py-3 text-xs flex items-center font-black uppercase tracking-widest transition-all active:scale-95"
+                <button className="px-8 py-3 text-sm flex items-center font-black uppercase tracking-widest transition-all active:scale-95"
                   style={{ backgroundColor: GOLD, color: "#09090E" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLElement).style.backgroundColor = GOLD_HOVER)}
                   onMouseLeave={e => ((e.currentTarget as HTMLElement).style.backgroundColor = GOLD)}>
                   <Play className="mr-2" /> Watch Live
                 </button>
-                <button className="border border-white/15 text-[#777] bg-black/30 backdrop-blur-sm px-8 py-3 text-xs font-black uppercase tracking-widest hover:text-[#F0EDE8] hover:border-white/30 transition-all">
+                <button className="border border-white/15 text-[#777] bg-black/30 backdrop-blur-sm px-8 py-3 text-sm font-black uppercase tracking-widest hover:text-[#F0EDE8] hover:border-white/30 transition-all">
                   Donate
                 </button>
               </div>
@@ -185,22 +185,22 @@ export default function Home() {
                 <div className="flex justify-between items-center mb-3">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-[8px] font-black uppercase tracking-widest text-green-400">Online</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-green-400">Online</span>
                   </div>
-                  <span className="text-[8px] font-black uppercase tracking-widest border px-1.5 py-0.5"
+                  <span className="text-[10px] font-black uppercase tracking-widest border px-1.5 py-0.5"
                     style={{ color: GOLD, borderColor: `${GOLD}20` }}>● Live</span>
                 </div>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-3xl font-black tabular-nums">342</span>
-                  <span className="text-xs text-[#888] font-bold">/500 players</span>
+                  <span className="text-4xl font-black tabular-nums">342</span>
+                  <span className="text-sm text-[#888] font-bold">/500 players</span>
                 </div>
                 <div className="w-full h-0.5 bg-white/[0.05] overflow-hidden mb-3">
                   <div className="h-full w-[68%]"
                     style={{ background: `linear-gradient(to right, ${GOLD}, ${GOLD_HOVER})` }} />
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-mono text-[9px] text-[#1f1f1f]">mc.craftolympics.fr</span>
-                  <button className="text-[8px] font-black uppercase tracking-widest transition-colors text-[#1f1f1f]"
+                  <span className="font-mono text-xs text-[#1f1f1f]">mc.craftolympics.fr</span>
+                  <button className="text-[10px] font-black uppercase tracking-widest transition-colors text-[#1f1f1f]"
                     onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = GOLD)}
                     onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "#1f1f1f")}>
                     Copy →
@@ -212,10 +212,10 @@ export default function Home() {
                 <div className="absolute inset-x-0 top-0 h-px"
                   style={{ background: `linear-gradient(to right, transparent, ${BRONZE}35, transparent)` }} />
                 <div className="flex justify-between items-center mb-2.5">
-                  <span className="text-[8px] font-black uppercase tracking-widest" style={{ color: BRONZE }}>
+                  <span className="text-[10px] font-black uppercase tracking-widest" style={{ color: BRONZE }}>
                     Charity Goal
                   </span>
-                  <span className="text-[8px] font-mono text-[#222]">
+                  <span className="text-[10px] font-mono text-[#222]">
                     €{donationCurrent.toLocaleString()} / €{donationGoal.toLocaleString()}
                   </span>
                 </div>
@@ -223,8 +223,8 @@ export default function Home() {
                   <div className="h-full rounded-full" style={{ width: `${donationPct}%`, background: "linear-gradient(to right, #3d6b4a, #5a9e6a)" }} />
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-[8px] text-[#1a1a1a] font-bold">{donationPct}% of goal reached</span>
-                  <button className="text-[8px] font-black uppercase tracking-widest text-[#3d6b4a] hover:text-[#5a9e6a] transition-colors">
+                  <span className="text-[10px] text-[#1a1a1a] font-bold">{donationPct}% of goal reached</span>
+                  <button className="text-[10px] font-black uppercase tracking-widest text-[#3d6b4a] hover:text-[#5a9e6a] transition-colors">
                     Donate →
                   </button>
                 </div>
@@ -238,10 +238,10 @@ export default function Home() {
       <section className="relative z-10 border-t border-white/[0.04]" style={{ background: "#09090E" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-12 md:py-14">
           <div className="flex items-baseline justify-between mb-8">
-            <h2 className="text-[9px] font-black uppercase tracking-[0.35em]" style={{ color: GOLD }}>
+            <h2 className="text-[11px] font-black uppercase tracking-[0.35em]" style={{ color: GOLD }}>
               // The Tournament
             </h2>
-            <span className="text-[8px] uppercase font-bold tracking-widest text-[#1a1a1a]">
+            <span className="text-[10px] uppercase font-bold tracking-widest text-[#1a1a1a]">
               {EVENTS.length} confirmed · more soon
             </span>
           </div>
@@ -256,16 +256,16 @@ export default function Home() {
                 <div className="absolute inset-x-0 top-0 h-px scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
                   style={{ backgroundColor: GOLD }} />
                 <div className="flex items-center justify-between mb-5">
-                  <span className="text-xl">{emoji}</span>
-                  <span className="text-[8px] font-mono" style={{ color: BRONZE }}>{id}</span>
+                  <span className="text-2xl">{emoji}</span>
+                  <span className="text-[10px] font-mono" style={{ color: BRONZE }}>{id}</span>
                 </div>
-                <h3 className="text-lg md:text-xl font-black uppercase tracking-tight mb-1.5 transition-colors"
+                <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight mb-1.5 transition-colors"
                   style={{} as React.CSSProperties}
                   onMouseEnter={() => { }}
                 >
                   <span className="group-hover:text-[#C9A84C] transition-colors">{name}</span>
                 </h3>
-                <p className="text-[11px] text-[#666] leading-relaxed">{desc}</p>
+                <p className="text-sm text-[#666] leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -295,16 +295,16 @@ export default function Home() {
           </div>
 
           <div className="order-1 md:order-2">
-            <p className="text-[8px] uppercase font-bold tracking-[0.3em] mb-3" style={{ color: GOLD }}>
+            <p className="text-[10px] uppercase font-bold tracking-[0.3em] mb-3" style={{ color: GOLD }}>
               // Who we are
             </p>
-            <h2 className="text-[clamp(26px,3.5vw,44px)] font-black uppercase leading-tight mb-4">
+            <h2 className="text-[clamp(30px,4vw,48px)] font-black uppercase leading-tight mb-4">
               Built for<br />
               <span className="text-transparent" style={{ WebkitTextStroke: "1.5px #222" }}>
                 the community
               </span>
             </h2>
-            <p className="text-[#888] text-sm leading-relaxed mb-5">
+            <p className="text-[#888] text-base leading-relaxed mb-5">
               Founded by Porkstride, the MCYT Olympics is an annual charity tournament. Every edition brings together the biggest Minecraft creators for custom-coded games — and every donation goes directly to the cause chosen by the community.
             </p>
 
@@ -316,13 +316,13 @@ export default function Home() {
                 { v: "*", l: "Editions" },
               ].map(({ v, l }) => (
                 <div key={l}>
-                  <div className="text-lg font-black" style={{ color: GOLD }}>{v}</div>
-                  <div className="text-[7px] uppercase tracking-widest font-bold mt-0.5" style={{ color: BRONZE }}>{l}</div>
+                  <div className="text-xl font-black" style={{ color: GOLD }}>{v}</div>
+                  <div className="text-[9px] uppercase tracking-widest font-bold mt-0.5" style={{ color: BRONZE }}>{l}</div>
                 </div>
               ))}
             </div>
 
-            <p className="text-[8px] uppercase font-bold tracking-widest text-[#1a1a1a] mt-5">
+            <p className="text-[10px] uppercase font-bold tracking-widest text-[#1a1a1a] mt-5">
               Developed by ItzBogged · Since 2023
             </p>
           </div>
@@ -333,26 +333,26 @@ export default function Home() {
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: `radial-gradient(ellipse 60% 120% at 50% 100%, ${GOLD}06, transparent)` }} />
         <div className="relative max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-20 text-center">
-          <p className="text-[8px] uppercase font-black tracking-[0.4em] mb-4" style={{ color: GOLD }}>
+          <p className="text-[10px] uppercase font-black tracking-[0.4em] mb-4" style={{ color: GOLD }}>
             // Edition IV · June 2026
           </p>
-          <h2 className="text-[clamp(32px,6vw,76px)] font-black uppercase leading-tight mb-3">
+          <h2 className="text-[clamp(36px,7vw,80px)] font-black uppercase leading-tight mb-3">
             Tune in
             <span className="text-transparent ml-4" style={{ WebkitTextStroke: `2px ${BRONZE}50` }}>
               this summer
             </span>
           </h2>
-          <p className="text-[8px] uppercase tracking-widest font-bold mb-8" style={{ color: BRONZE }}>
+          <p className="text-[10px] uppercase tracking-widest font-bold mb-8" style={{ color: BRONZE }}>
             Livestreamed · Charity · Community voted
           </p>
           <div className="flex justify-center gap-2.5 flex-wrap">
-            <button className="px-10 py-3 text-[9px] font-black uppercase tracking-widest transition-all active:scale-95"
+            <button className="px-10 py-3 text-sm font-black uppercase tracking-widest transition-all active:scale-95"
               style={{ backgroundColor: GOLD, color: "#09090E" }}
               onMouseEnter={e => ((e.currentTarget as HTMLElement).style.backgroundColor = GOLD_HOVER)}
               onMouseLeave={e => ((e.currentTarget as HTMLElement).style.backgroundColor = GOLD)}>
               <Play />Watch Live
             </button>
-            <button className="border border-white/[0.07] text-[#888] px-10 py-3 text-[9px] font-black uppercase tracking-widest hover:text-[#F0EDE8] hover:border-white/[0.12] transition-all">
+            <button className="border border-white/[0.07] text-[#888] px-10 py-3 text-sm font-black uppercase tracking-widest hover:text-[#F0EDE8] hover:border-white/[0.12] transition-all">
               Donate
             </button>
           </div>
@@ -361,10 +361,10 @@ export default function Home() {
 
       <footer className="border-t border-white/[0.04]" style={{ background: "#050509" }}>
         <div className="flex items-center gap-2">
-          <p className="text-[8px] text-[#181818] font-bold uppercase tracking-widest">
+          <p className="text-[10px] text-[#181818] font-bold uppercase tracking-widest">
             © 2026 MCYT Olympics · All Rights Reserved
           </p>
-          <p className="text-[8px] text-[#141414] font-bold uppercase tracking-widest">
+          <p className="text-[10px] text-[#141414] font-bold uppercase tracking-widest">
             Developed by ItzBogged · A Porkstride Production
           </p>
         </div>
